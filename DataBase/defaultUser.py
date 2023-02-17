@@ -1,4 +1,6 @@
-def tmp():
+import json
+
+def generateDefaultUser():
     data = {
             "user_name":"Безымянный воин",
             "money":0,
@@ -22,7 +24,7 @@ def tmp():
             "breaking_exp":0,
             "stealth":1,
             "stealth_exp":0,
-            "main_weapon":"Правый кулаки",
+            "main_weapon":"Правый кулак",
             "secondary_weapon":"Левый кулак",
             "head_armor":"Лысая голова",
             "outer_armor":"Тонкая футболка",
@@ -32,6 +34,7 @@ def tmp():
             "burnt_meat":0,
             "bowl_of_rice":0,
             "shawarma":0,
+            "tools": 0,
             "steel":0
             }
     with open('DataBase/defaultUser.json', 'w', encoding='utf-8') as fp:

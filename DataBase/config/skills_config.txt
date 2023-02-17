@@ -1,0 +1,1 @@
+SELECT close_combat, close_combat_exp, distante_battle, distante_battle_exp, defense, defense_exp, strength, strength_exp, employment, employment_exp, breaking, breaking_exp, stealth, stealth_exp FROM users WHERE user_id == ?

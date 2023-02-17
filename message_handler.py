@@ -35,7 +35,7 @@ def create_Person(request):
 
 
 def about_Person(event):
-    data = menu_templates.about_Person(
+    data = menu_templates.about_menu(
         from_id=event.obj["message"]["from_id"],
         peer_id=event.obj["message"]["peer_id"],
         from_user=event.from_user
@@ -46,7 +46,14 @@ def about_Person(event):
 def handler(event):
     text = event.obj["message"]["text"].lower()
 
-    if text == "обо мне":
-        about_Person(event)
-    else:
-        create_Person(event)
+    try:
+        DB_Commands.add_new_user(event.obj["message"]["from_id"])
+
+
+    except DB_Commands.sqlite3.IntegrityError:
+        if text == "обо мне":
+            about_Person(event)
+
+
+    except Exception as s:
+        print(f"Unexpected {s}\n{s=}, {type(s)=}")

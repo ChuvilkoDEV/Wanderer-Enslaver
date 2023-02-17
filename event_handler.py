@@ -12,11 +12,22 @@ def editMsg(data, messageId):
         keyboard=data["keyboard"]
     )
 
-def about_Person(event):
-    data = menu_templates.about_Person(event.obj["user_id"], event.obj["peer_id"])
-    editMsg(data, event.obj.conversation_message_id)
 
 def handler(event):
     type = event.object.payload["type"]
     if type == "about":
-        about_Person(event)
+        data = menu_templates.about_menu(event.obj["user_id"], event.obj["peer_id"])
+        editMsg(data, event.obj.conversation_message_id)
+
+    elif type == "slaves":
+        data = menu_templates.slave_menu(event.obj["user_id"], event.obj["peer_id"])
+        editMsg(data, event.obj.conversation_message_id)
+
+    elif type == "inventory":
+        data = menu_templates.inventory_menu(event.obj["user_id"], event.obj["peer_id"])
+        editMsg(data, event.obj.conversation_message_id)
+
+    elif type == "skills":
+        data = menu_templates.skills_menu(event.obj["user_id"], event.obj["peer_id"])
+        editMsg(data, event.obj.conversation_message_id)
+

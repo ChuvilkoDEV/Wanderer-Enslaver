@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS users(
     burnt_meat INTEGER,
     bowl_of_rice INTEGER,
     shawarma INTEGER,
+    tools INTEGER,
     steel INTEGER,
     time_for_next_job DATETIME
 )
