@@ -44,7 +44,7 @@ def addDefaultBtn(keyboard, buttons):
     return keyboard
 
 
-def generate_keyboard(buttons, fromUser):
+def generateKeyboard(buttons, fromUser):
     keyboard = VkKeyboard(inline=True)
     if (fromUser):
         return addDefaultBtn(keyboard, buttons)
@@ -61,30 +61,30 @@ def replaceFString(s, data):
     return s
 
 # Генератор простых меню
-def menu_constructor(type, buttons, fromId, peerId, isFromUser, attachment = None):
+def menuConstructor(type, buttons, fromId, peerId, isFromUser, attachment = None):
     with open(f'DataBase/menuConfig/{type}.json', 'r', encoding='utf-8') as f:
         config = json.load(f)
-        data = DB_Commands.select_settings_byConfig(config["getFromDB"], fromId)
+        data = DB_Commands.selectSettingsByConfig(config["getFromDB"], fromId)
         return {
             "message": replaceFString(config["text"], data),
-            "keyboard": generate_keyboard(buttons, isFromUser),
+            "keyboard": generateKeyboard(buttons, isFromUser),
             "peer_id": peerId,
             "attachment": attachment
         }
 
-def about_menu(from_id, peer_id, from_user=False):
+def aboutMenu(fromId, peerId, fromUser=False):
     buttons = (slavesBtn, skillsBtn, None, inventoryBtn, equipmentBtn, None, jobBtn)
-    return menu_constructor('about', buttons, from_id, peer_id, from_user)
+    return menuConstructor('about', buttons, fromId, peerId, fromUser)
 
-def slaves_menu(from_id, peer_id, from_user=False):
+def slavesMenu(fromId, peerId, fromUser=False):
     buttons = (slavesJobBtn, slavesFoodBtn, None, aboutBtn)
-    return menu_constructor('slaves', buttons, from_id, peer_id, from_user)
+    return menuConstructor('slaves', buttons, fromId, peerId, fromUser)
 
-def inventory_menu(from_id, peer_id, from_user=False):
+def inventoryMenu(fromId, peerId, fromUser=False):
     buttons = (craftBtn, FoodBtn, None, aboutBtn)
-    return menu_constructor('inventory', buttons, from_id, peer_id, from_user)
+    return menuConstructor('inventory', buttons, fromId, peerId, fromUser)
 
-def skills_menu(from_id, peer_id, from_user=False):
+def skillsMenu(fromId, peerId, fromUser=False):
     buttons = (aboutBtn,)
-    return menu_constructor('skills', buttons, from_id, peer_id, from_user)
+    return menuConstructor('skills', buttons, fromId, peerId, fromUser)
 

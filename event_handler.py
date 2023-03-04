@@ -16,19 +16,19 @@ def editMsg(data, messageId):
 def handler(event):
     type = event.object.payload["type"]
     if type == "about":
-        data = menu_templates.about_menu(event.obj["user_id"], event.obj["peer_id"])
+        data = menu_templates.aboutMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "slaves":
-        data = menu_templates.slaves_menu(event.obj["user_id"], event.obj["peer_id"])
+        data = menu_templates.slavesMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "inventory":
-        data = menu_templates.inventory_menu(event.obj["user_id"], event.obj["peer_id"])
+        data = menu_templates.inventoryMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "skills":
-        data = menu_templates.skills_menu(event.obj["user_id"], event.obj["peer_id"])
+        data = menu_templates.skillsMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "job":

@@ -24,7 +24,7 @@ def sendMsg(data):
 
 def create_Person(request):
     try:
-        DB_Commands.add_new_user(request["from_id"])
+        DB_Commands.addNewUser(request["from_id"])
         data = {
             "peer_id": request["peer_id"],
             "message": f"@id{request['from_id']}, теперь у вас есть персонаж! Постарайся не попасть в рабство..."
@@ -35,10 +35,10 @@ def create_Person(request):
 
 
 def about_Person(event):
-    data = menu_templates.about_menu(
-        from_id=event.obj["message"]["from_id"],
-        peer_id=event.obj["message"]["peer_id"],
-        from_user=event.from_user
+    data = menu_templates.aboutMenu(
+        fromId=event.obj["message"]["from_id"],
+        peerId=event.obj["message"]["peer_id"],
+        fromUser=event.from_user
     )
     sendMsg(data)
 
@@ -47,7 +47,7 @@ def handler(event):
     text = event.obj["message"]["text"].lower()
 
     try:
-        DB_Commands.add_new_user(event.obj["message"]["from_id"])
+        DB_Commands.addNewUser(event.obj["message"]["from_id"])
 
 
     except DB_Commands.sqlite3.IntegrityError:
