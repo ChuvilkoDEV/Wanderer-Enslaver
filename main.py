@@ -3,6 +3,7 @@ import BotVk
 import json
 import DataBase.defaultUser
 
+
 DB_Commands.create_user_db()
 DataBase.defaultUser.generateDefaultUser()
 

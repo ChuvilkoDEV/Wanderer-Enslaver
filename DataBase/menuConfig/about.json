@@ -1,0 +1,4 @@
+{
+  "getFromDB": "SELECT user_name, money, hunger, state_of_life, head_bounty, honor, wins, loses FROM users WHERE user_id == ?",
+  "text": "\uD83D\uDC64 Имя персонажа: <<0>>\n\uD83D\uDCB0 Деньги: <<1>> к.\n\uD83C\uDF56 Голод: <<2>>/300\n❤ Состояние: <<3>>\n\uD83D\uDC80 Нагада за голову: <<4>> к.\n\uD83C\uDFC6 Честь: <<5>>\n\n⚔ Побед: <<6>>\n☠ Поражений: <<7>>"
+}

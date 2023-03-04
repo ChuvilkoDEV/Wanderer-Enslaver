@@ -20,7 +20,7 @@ def handler(event):
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "slaves":
-        data = menu_templates.slave_menu(event.obj["user_id"], event.obj["peer_id"])
+        data = menu_templates.slaves_menu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
     elif type == "inventory":

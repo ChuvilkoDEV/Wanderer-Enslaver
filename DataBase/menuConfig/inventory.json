@@ -1,0 +1,4 @@
+{
+  "getFromDB": "SELECT burnt_meat, bowl_of_rice, shawarma FROM users WHERE user_id == ?",
+  "text": "\uD83C\uDF92 В вашем инвентаре хранится:\n\n\uD83C\uDF57 Подгоревшее мясо: <<0>> шт.\n\uD83C\uDF5A Миска рис: <<1>> шт.\n\uD83C\uDF2F Шава: <<2>> шт.\n\uD83D\uDD27 Инструменты:\n\uD83D\uDD29 Сталь\n\n\uD83D\uDD17 Кандалов: \n⛓ Клеток: "
+}

@@ -1,5 +1,6 @@
 import datetime
 import BotVk
+import json
 from DataBase import DB_Commands
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 
@@ -52,16 +53,20 @@ def generate_keyboard(buttons, fromUser):
 
 
 def replaceFString(s, data):
+    if (data == None):
+        return
     for i in range(len(data)):
         if s.find(f"<<{i}>>"):
             s = s.replace(f"<<{i}>>", str(data[i]))
     return s
 
+# Генератор простых меню
 def menu_constructor(type, buttons, fromId, peerId, isFromUser, attachment = None):
-    data = DB_Commands.select_settings_byConfig(f'DataBase/config/{type}_config.txt', fromId)
-    with open(f'DataBase/text/{type}_text.txt', 'r', encoding="utf-8") as f:
+    with open(f'DataBase/menuConfig/{type}.json', 'r', encoding='utf-8') as f:
+        config = json.load(f)
+        data = DB_Commands.select_settings_byConfig(config["getFromDB"], fromId)
         return {
-            "message": replaceFString(f.read(), data),
+            "message": replaceFString(config["text"], data),
             "keyboard": generate_keyboard(buttons, isFromUser),
             "peer_id": peerId,
             "attachment": attachment
@@ -71,17 +76,9 @@ def about_menu(from_id, peer_id, from_user=False):
     buttons = (slavesBtn, skillsBtn, None, inventoryBtn, equipmentBtn, None, jobBtn)
     return menu_constructor('about', buttons, from_id, peer_id, from_user)
 
-def slave_menu(from_id, peer_id, from_user=False):
+def slaves_menu(from_id, peer_id, from_user=False):
     buttons = (slavesJobBtn, slavesFoodBtn, None, aboutBtn)
-    data = []
-
-    with open('DataBase/text/slaves_text.txt', 'r', encoding="utf-8") as f:
-        return {
-            "message": replaceFString(f.read(), data),
-            "keyboard": generate_keyboard(buttons, from_user),
-            "peer_id": peer_id,
-            "attachment": None
-        }
+    return menu_constructor('slaves', buttons, from_id, peer_id, from_user)
 
 def inventory_menu(from_id, peer_id, from_user=False):
     buttons = (craftBtn, FoodBtn, None, aboutBtn)

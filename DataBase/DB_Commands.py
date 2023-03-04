@@ -13,7 +13,7 @@ def create_user_db():
     connect = sqlite3.connect('DataBase/users.db')
     cursor = connect.cursor()
 
-    with open('DataBase/config/db_config.txt', 'r') as f:
+    with open('DataBase/db_config.txt', 'r') as f:
         cursor.execute(f.read())
         connect.commit()
 
@@ -41,9 +41,10 @@ def select_AllSettings_user_db(user_id):
     return data
 
 # Возвращает поля введенные в конфиг, по адресу wayToConfig для пользователя под индексом user_id
-def select_settings_byConfig(wayToConfig, user_id):
+def select_settings_byConfig(config:str, user_id:int):
+    if (config == ""):
+        return
     connect = sqlite3.connect('DataBase/users.db')
     cursor = connect.cursor()
-    with open(wayToConfig, 'r') as f:
-        data = cursor.execute(f.read(), (user_id,) ).fetchone()
-    return data
+    return cursor.execute(config, (user_id,) ).fetchone()
+

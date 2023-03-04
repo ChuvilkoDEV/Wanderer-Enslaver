@@ -1,0 +1,4 @@
+{
+  "getFromDB": "SELECT close_combat, close_combat_exp, distante_battle, distante_battle_exp, defense, defense_exp, strength, strength_exp, employment, employment_exp, breaking, breaking_exp, stealth, stealth_exp FROM users WHERE user_id == ?",
+  "text": "Ваши навыки:\n\n\uD83D\uDDE1 Ближний бой: <<0>> (<<1>>%)\n\uD83C\uDFF9 Дальний бой: <<2>> (<<3>>%)\n\uD83D\uDEE1 Защита: <<4>> (<<5>>%)\n❤ Здоровье: <<6>> (<<7>>%)\n\n\uD83D\uDD28 Работа: <<8>> (<<9>>%)\n\uD83D\uDD11 Взлом: <<10>> (<<11>>%)\n\uD83D\uDC41\u200D\uD83D\uDDE8 Скрытность: <<12>> (<<13>>%)"
+}
