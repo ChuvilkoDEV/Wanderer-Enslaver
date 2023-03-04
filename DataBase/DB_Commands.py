@@ -40,6 +40,7 @@ def select_AllSettings_user_db(user_id):
     data = cursor.execute('SELECT * FROM users WHERE user_id == ?', (user_id,) ).fetchone()
     return data
 
+# Возвращает поля введенные в конфиг, по адресу wayToConfig для пользователя под индексом user_id
 def select_settings_byConfig(wayToConfig, user_id):
     connect = sqlite3.connect('DataBase/users.db')
     cursor = connect.cursor()

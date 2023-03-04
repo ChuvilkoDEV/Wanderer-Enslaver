@@ -13,6 +13,8 @@ craftBtn = {"text": "Крафт", "color": VkKeyboardColor.PRIMARY, "type": "cra
 FoodBtn = {"text": "Рацион питания", "color": VkKeyboardColor.PRIMARY, "type": "Food"}
 equipmentBtn = {"text": "Мое снаряжение", "color": VkKeyboardColor.PRIMARY, "type": "equipment"}
 jobBtn = {"text": "Работа", "color": VkKeyboardColor.PRIMARY, "type": "job"}
+jobRaidBtn = {"text": "В рейд", "color": VkKeyboardColor.PRIMARY, "type": "jobRaid"}
+jobMinesBtn = {"text": "В шахты", "color": VkKeyboardColor.PRIMARY, "type": "jobMines"}
 
 
 def addCallbackBtn(keyboard, buttons):
@@ -88,3 +90,4 @@ def inventory_menu(from_id, peer_id, from_user=False):
 def skills_menu(from_id, peer_id, from_user=False):
     buttons = (aboutBtn,)
     return menu_constructor('skills', buttons, from_id, peer_id, from_user)
+
