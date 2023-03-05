@@ -38,7 +38,7 @@ def about_Person(event):
     data = menu_templates.aboutMenu(
         fromId=event.obj["message"]["from_id"],
         peerId=event.obj["message"]["peer_id"],
-        fromUser=event.from_user
+        isFromUser=event.from_user
     )
     sendMsg(data)
 

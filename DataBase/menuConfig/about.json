@@ -10,5 +10,7 @@
     "wins": 0,
     "loses": 0
   },
-  "text": "\uD83D\uDC64 Имя персонажа: <<user_name>>\n\uD83D\uDCB0 Деньги: <<money>> к.\n\uD83C\uDF56 Голод: <<hunger>>/300\n❤ Состояние: <<state_of_life>>\n\uD83C\uDFC6 Честь: <<honor>>\n\n⚔ Побед: <<wins>>\n☠ Поражений: <<loses>>"
+  "text": {
+    "default": "\uD83D\uDC64 Имя персонажа: <<user_name>>\n\uD83D\uDCB0 Деньги: <<money>> к.\n\uD83C\uDF56 Голод: <<hunger>>/300\n❤ Состояние: <<state_of_life>>\n\uD83C\uDFC6 Честь: <<honor>>\n\n⚔ Побед: <<wins>>\n☠ Поражений: <<loses>>"
+  }
 }

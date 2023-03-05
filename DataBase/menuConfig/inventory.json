@@ -5,5 +5,7 @@
     "bowl_of_rice": "",
     "shawarma": ""
   },
-  "text": "\uD83C\uDF92 В вашем инвентаре хранится:\n\n\uD83C\uDF57 Подгоревшее мясо: <<burnt_meat>> шт.\n\uD83C\uDF5A Миска рис: <<bowl_of_rice>> шт.\n\uD83C\uDF2F Шава: <<shawarma>> шт.\n\uD83D\uDD27 Инструменты:\n\uD83D\uDD29 Сталь\n\n\uD83D\uDD17 Кандалов: \n⛓ Клеток: "
+  "text": {
+    "default": "\uD83C\uDF92 В вашем инвентаре хранится:\n\n\uD83C\uDF57 Подгоревшее мясо: <<burnt_meat>> шт.\n\uD83C\uDF5A Миска рис: <<bowl_of_rice>> шт.\n\uD83C\uDF2F Шава: <<shawarma>> шт.\n\uD83D\uDD27 Инструменты:\n\uD83D\uDD29 Сталь\n\n\uD83D\uDD17 Кандалов: \n⛓ Клеток: "
+  }
 }

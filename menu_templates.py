@@ -60,38 +60,61 @@ def replaceFString(s, data):
             s = s.replace(f"<<{i}>>", str(data[i]))
     return s
 
-# Генератор простых меню
-def menuConstructor(type, buttons, fromId, peerId, isFromUser, attachment = None):
+
+def selectConfig(type, fromId):
     with open(f'DataBase/menuConfig/{type}.json', 'r', encoding='utf-8') as f:
         config = json.load(f)
-        config = DB_Commands.selectSettingsByConfig(config, fromId)
-        return {
-            "message": replaceFString(config["text"], config["data"]),
-            "keyboard": generateKeyboard(buttons, isFromUser),
-            "peer_id": peerId,
-            "attachment": attachment
-        }
+        return DB_Commands.selectSettingsByConfig(config, fromId)
 
-def aboutMenu(fromId, peerId, fromUser=False):
+
+# Генератор простых меню
+def menuConstructor(config, buttons, peerId, isFromUser, textId='default', attachment=None):
+    return {
+        "message": replaceFString(config["text"][textId], config["data"]),
+        "keyboard": generateKeyboard(buttons, isFromUser),
+        "peer_id": peerId,
+        "attachment": attachment
+    }
+
+
+def aboutMenu(fromId, peerId, isFromUser=False):
     buttons = (slavesBtn, skillsBtn, None, inventoryBtn, equipmentBtn, None, jobBtn)
-    return menuConstructor('about', buttons, fromId, peerId, fromUser)
+    config = selectConfig(aboutBtn["type"], fromId)
+    return menuConstructor(config, buttons, peerId, isFromUser)
 
-def slavesMenu(fromId, peerId, fromUser=False):
+
+def slavesMenu(fromId, peerId, isFromUser=False):
     buttons = (slavesJobBtn, slavesFoodBtn, None, aboutBtn)
-    return menuConstructor('slaves', buttons, fromId, peerId, fromUser)
+    config = selectConfig(slavesBtn["type"], fromId)
+    return menuConstructor(config, buttons, peerId, isFromUser)
 
-def inventoryMenu(fromId, peerId, fromUser=False):
+
+def inventoryMenu(fromId, peerId, isFromUser=False):
     buttons = (craftBtn, FoodBtn, None, aboutBtn)
-    return menuConstructor('inventory', buttons, fromId, peerId, fromUser)
+    config = selectConfig(inventoryBtn["type"], fromId)
+    return menuConstructor(config, buttons, peerId, isFromUser)
 
-def skillsMenu(fromId, peerId, fromUser=False):
-    buttons = (aboutBtn,)
-    return menuConstructor('skills', buttons, fromId, peerId, fromUser)
 
-def equipmentMenu(fromId, peerId, fromUser=False):
+def skillsMenu(fromId, peerId, isFromUser=False):
     buttons = (aboutBtn,)
-    return menuConstructor('equipment', buttons, fromId, peerId, fromUser)
+    config = selectConfig(skillsBtn["type"], fromId)
+    return menuConstructor(config, buttons, peerId, isFromUser)
 
-def jobMenu(fromId, peerId, fromUser=False):
+
+def equipmentMenu(fromId, peerId, isFromUser=False):
     buttons = (aboutBtn,)
-    return menuConstructor('job', buttons, fromId, peerId, fromUser)
+    config = selectConfig(equipmentBtn["type"], fromId)
+    return menuConstructor(config, buttons, peerId, isFromUser)
+
+
+def jobMenu(fromId, peerId, isFromUser=False):
+    buttons = (aboutBtn,)
+    config = selectConfig(jobBtn["type"], fromId)
+    config["data"]["time_for_next_job"] = datetime.datetime.strptime(
+        config["data"]["time_for_next_job"],
+        '%Y-%m-%d %H:%M:%S.%f'
+    )
+    if (datetime.datetime.now() >= config["data"]["time_for_next_job"]):
+        return menuConstructor(config, buttons, peerId, isFromUser, "canWork")
+    else:
+        return menuConstructor(config, buttons, peerId, isFromUser, "canNotWork")

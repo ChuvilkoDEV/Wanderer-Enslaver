@@ -10,5 +10,7 @@
     "legs_armor": "",
     "shoes_armor": ""
   },
-  "text": "Основное оружие: <<main_weapon>>\nДополнительное оружие: <<secondary_weapon>>\n\nГолова: <<head_armor>>\nБроня: <<outer_armor>>\nШтаны: <<legs_armor>>\nОбувь: <<shoes_armor>>"
+  "text": {
+    "default": "Основное оружие: <<main_weapon>>\nДополнительное оружие: <<secondary_weapon>>\n\nГолова: <<head_armor>>\nБроня: <<outer_armor>>\nШтаны: <<legs_armor>>\nОбувь: <<shoes_armor>>"
+  }
 }
