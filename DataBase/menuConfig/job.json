@@ -1,4 +1,7 @@
 {
   "getFromDB": "SELECT time_for_next_job FROM users WHERE user_id == ?",
+  "data": {
+    "time_for_next_job": ""
+  },
   "text": ""
 }

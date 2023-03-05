@@ -8,6 +8,7 @@ with open('DataBase/defaultUser.json', 'r', encoding='utf-8') as f: #откры�
     for i in tmp:
         defaultUser.append(str(tmp[i]))
 
+
 # Создает базу данных, если она не была создана ранее
 def createUserDB():
     connect = sqlite3.connect('DataBase/users.db')
@@ -41,10 +42,14 @@ def selectAllSettingsUserDB(userId):
     return data
 
 # Возвращает поля введенные в конфиг, по адресу wayToConfig для пользователя под индексом user_id
-def selectSettingsByConfig(config:str, userId:int):
-    if (config == ""):
-        return
-    connect = sqlite3.connect('DataBase/users.db')
-    cursor = connect.cursor()
-    return cursor.execute(config, (userId,)).fetchone()
+def selectSettingsByConfig(config, userId:int):
+    if (config["getFromDB"] != ""):
+        connect = sqlite3.connect('DataBase/users.db')
+        cursor = connect.cursor()
+        data = cursor.execute(config["getFromDB"], (userId,)).fetchone()
+        index = 0
+        for i in config["data"]:
+            config["data"][i] = data[index]
+            index += 1
+        return config
 

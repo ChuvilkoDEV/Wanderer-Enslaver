@@ -55,7 +55,7 @@ def generateKeyboard(buttons, fromUser):
 def replaceFString(s, data):
     if (data == None):
         return
-    for i in range(len(data)):
+    for i in data:
         if s.find(f"<<{i}>>"):
             s = s.replace(f"<<{i}>>", str(data[i]))
     return s
@@ -64,9 +64,9 @@ def replaceFString(s, data):
 def menuConstructor(type, buttons, fromId, peerId, isFromUser, attachment = None):
     with open(f'DataBase/menuConfig/{type}.json', 'r', encoding='utf-8') as f:
         config = json.load(f)
-        data = DB_Commands.selectSettingsByConfig(config["getFromDB"], fromId)
+        config = DB_Commands.selectSettingsByConfig(config, fromId)
         return {
-            "message": replaceFString(config["text"], data),
+            "message": replaceFString(config["text"], config["data"]),
             "keyboard": generateKeyboard(buttons, isFromUser),
             "peer_id": peerId,
             "attachment": attachment

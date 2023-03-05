@@ -1,1 +1,0 @@
-SELECT user_name, money, hunger, state_of_life, head_bounty, honor, wins, loses FROM users WHERE user_id == ?

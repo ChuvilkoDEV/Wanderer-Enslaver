@@ -1,4 +1,14 @@
 {
   "getFromDB": "SELECT user_name, money, hunger, state_of_life, head_bounty, honor, wins, loses FROM users WHERE user_id == ?",
-  "text": "\uD83D\uDC64 Имя персонажа: <<0>>\n\uD83D\uDCB0 Деньги: <<1>> к.\n\uD83C\uDF56 Голод: <<2>>/300\n❤ Состояние: <<3>>\n\uD83D\uDC80 Нагада за голову: <<4>> к.\n\uD83C\uDFC6 Честь: <<5>>\n\n⚔ Побед: <<6>>\n☠ Поражений: <<7>>"
+  "data": {
+    "user_name": "",
+    "money": 0,
+    "hunger": 150,
+    "state_of_life": 1,
+    "head_bounty": 0,
+    "honor": 50,
+    "wins": 0,
+    "loses": 0
+  },
+  "text": "\uD83D\uDC64 Имя персонажа: <<user_name>>\n\uD83D\uDCB0 Деньги: <<money>> к.\n\uD83C\uDF56 Голод: <<hunger>>/300\n❤ Состояние: <<state_of_life>>\n\uD83C\uDFC6 Честь: <<honor>>\n\n⚔ Побед: <<wins>>\n☠ Поражений: <<loses>>"
 }

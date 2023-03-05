@@ -1,1 +1,0 @@
-SELECT burnt_meat, bowl_of_rice, shawarma FROM users WHERE user_id == ?
