@@ -1,0 +1,14 @@
+{
+  "getFromDB": "SELECT main_weapon, secondary_weapon, head_armor, outer_armor, additional_armor, legs_armor, shoes_armor FROM users WHERE user_id == ?",
+  "setToDB": "",
+  "data": {
+    "main_weapon": "",
+    "secondary_weapon": "",
+    "head_armor": "",
+    "outer_armor": "",
+    "additional_armor": "",
+    "legs_armor": "",
+    "shoes_armor": ""
+  },
+  "text": "Основное оружие: <<main_weapon>>\nДополнительное оружие: <<secondary_weapon>>\n\nГолова: <<head_armor>>\nБроня: <<outer_armor>>\nШтаны: <<legs_armor>>\nОбувь: <<shoes_armor>>"
+}

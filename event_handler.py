@@ -31,7 +31,7 @@ def handler(event):
         data = menu_templates.skillsMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
-    elif type == "job":
-        data = menu_templates.job_menu(event.obj["user_id"], event.obj["peer_id"])
+    elif type == "equipment":
+        data = menu_templates.equipmentMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 

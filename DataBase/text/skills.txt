@@ -1,0 +1,10 @@
+Ваши навыки:
+
+🗡 Ближний бой: <<close_combat>> (<<close_combat_exp>>%)
+🏹 Дальний бой: <<distante_battle>> (<<distante_battle_exp>>%)
+🛡 Защита: <<defense>> (<<defense_exp>>%)
+❤ Здоровье: <<strength>> (<<strength_exp>>%)
+
+🔨 Работа: <<employment>> (<<employment_exp>>%)
+🔑 Взлом: <<breaking>> (<<breaking_exp>>%)
+👁‍🗨 Скрытность: <<stealth>> (<<stealth_exp>>%)

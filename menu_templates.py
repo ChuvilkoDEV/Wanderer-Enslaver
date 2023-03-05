@@ -5,17 +5,17 @@ from DataBase import DB_Commands
 from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 
 aboutBtn = {"text": "Обо мне", "color": VkKeyboardColor.PRIMARY, "type": "about"}
-slavesBtn = {"text": "Мои рабы", "color": VkKeyboardColor.PRIMARY, "type": "slaves"}
-slavesJobBtn = {"text": "Работа рабов", "color": VkKeyboardColor.PRIMARY, "type": "slavesJob"}
-slavesFoodBtn = {"text": "Работа рабов", "color": VkKeyboardColor.PRIMARY, "type": "slavesFood"}
+slavesBtn = {"text": "Мои рабы Н/А", "color": VkKeyboardColor.PRIMARY, "type": "slaves"}
+slavesJobBtn = {"text": "Еда рабов Н/А", "color": VkKeyboardColor.PRIMARY, "type": "slavesJob"}
+slavesFoodBtn = {"text": "Работа рабов Н/А", "color": VkKeyboardColor.PRIMARY, "type": "slavesFood"}
 skillsBtn = {"text": "Мои навыки", "color": VkKeyboardColor.PRIMARY, "type": "skills"}
 inventoryBtn = {"text": "Мои инвентарь", "color": VkKeyboardColor.PRIMARY, "type": "inventory"}
-craftBtn = {"text": "Крафт", "color": VkKeyboardColor.PRIMARY, "type": "craft"}
-FoodBtn = {"text": "Рацион питания", "color": VkKeyboardColor.PRIMARY, "type": "Food"}
+craftBtn = {"text": "Крафт Н/А", "color": VkKeyboardColor.PRIMARY, "type": "craft"}
+FoodBtn = {"text": "Рацион питания Н/А", "color": VkKeyboardColor.PRIMARY, "type": "Food"}
 equipmentBtn = {"text": "Мое снаряжение", "color": VkKeyboardColor.PRIMARY, "type": "equipment"}
-jobBtn = {"text": "Работа", "color": VkKeyboardColor.PRIMARY, "type": "job"}
-jobRaidBtn = {"text": "В рейд", "color": VkKeyboardColor.PRIMARY, "type": "jobRaid"}
-jobMinesBtn = {"text": "В шахты", "color": VkKeyboardColor.PRIMARY, "type": "jobMines"}
+jobBtn = {"text": "Работа Н/А", "color": VkKeyboardColor.PRIMARY, "type": "job"}
+jobRaidBtn = {"text": "В рейд Н/А", "color": VkKeyboardColor.PRIMARY, "type": "jobRaid"}
+jobMinesBtn = {"text": "В шахты Н/А", "color": VkKeyboardColor.PRIMARY, "type": "jobMines"}
 
 
 def addCallbackBtn(keyboard, buttons):
@@ -88,3 +88,10 @@ def skillsMenu(fromId, peerId, fromUser=False):
     buttons = (aboutBtn,)
     return menuConstructor('skills', buttons, fromId, peerId, fromUser)
 
+def equipmentMenu(fromId, peerId, fromUser=False):
+    buttons = (aboutBtn,)
+    return menuConstructor('equipment', buttons, fromId, peerId, fromUser)
+
+def jobMenu(fromId, peerId, fromUser=False):
+    buttons = (aboutBtn,)
+    return menuConstructor('job', buttons, fromId, peerId, fromUser)

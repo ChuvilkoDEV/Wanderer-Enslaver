@@ -1,0 +1,7 @@
+Основное оружие: <<main_weapon>>
+Дополнительное оружие: <<secondary_weapon>>
+
+Голова: <<head_armor>>
+Броня: <<outer_armor>>
+Штаны: <<legs_armor>>
+Обувь: <<shoes_armor>>
