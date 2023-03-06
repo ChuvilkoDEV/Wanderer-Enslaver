@@ -1,0 +1,10 @@
+{
+  "getFromDB": "SELECT employment FROM users WHERE user_id == ?",
+  "setToDB": "",
+  "data": {
+    "employment": ""
+  },
+  "text": {
+    "default": "Ваш уровень навыка \"работа\": <<employment>>\n\nКаменоломня.\nМинимальные навыки: Работа 1\n\nЖелезная шахта.\nМинимальные навыки: Работа 10\n\nЗолотая шахта.\nМинимальные навыки: Работа 50"
+  }
+}

@@ -8,6 +8,8 @@ with open('DataBase/defaultUser.json', 'r', encoding='utf-8') as f: #откры�
     for i in tmp:
         defaultUser.append(str(tmp[i]))
 
+def strToDatetime(time):
+    return datetime.datetime.strptime(time, '%Y-%m-%d %H:%M:%S.%f')
 
 # Создает базу данных, если она не была создана ранее
 def createUserDB():
@@ -24,6 +26,12 @@ def generateInsertString(nParameters):
         string += ',?'
     string += ')'
     return string
+
+def dictToList(data:dict):
+    res = []
+    for i in data:
+        res.append(data[i])
+    return res
 
 def addNewUser(userId):
     data = [userId]
@@ -52,4 +60,13 @@ def selectSettingsByConfig(config, userId:int):
             config["data"][i] = data[index]
             index += 1
         return config
+
+# Возвращает поля введенные в конфиг, по адресу wayToConfig для пользователя под индексом user_id
+def insertSettingsByConfig(insertString:str, data:list, userId:int):
+    if (insertString != ""):
+        connect = sqlite3.connect('DataBase/users.db')
+        cursor = connect.cursor()
+        data.append(userId)
+        cursor.execute(insertString, data)
+        connect.commit()
 

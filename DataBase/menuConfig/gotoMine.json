@@ -1,0 +1,13 @@
+{
+  "getFromDB": "SELECT employment, time_for_next_job FROM users WHERE user_id == ?",
+  "setToDB": "Update users set time_for_next_job = ? where user_id = ?",
+  "data": {
+    "employment": 1,
+    "time_for_next_job": ""
+  },
+  "text": {
+    "success": "Поздравляем! Вы отправились на шахты",
+    "lowLevel": "Кажется, вы еще не достаточно круты для этой шахты",
+    "timeErr": "Вы не можете работать на двух работах одновременно!"
+  }
+}
