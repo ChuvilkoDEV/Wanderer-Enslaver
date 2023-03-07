@@ -1,5 +1,5 @@
 {
-  "getFromDB": "SELECT burnt_meat, bowl_of_rice, shawarma FROM users WHERE user_id == ?",
+  "getFromDB": "SELECT burnt_meat, bowl_of_rice, shawarma, tools, steel FROM users WHERE user_id == ?",
   "data": {
     "burnt_meat": "",
     "bowl_of_rice": "",
