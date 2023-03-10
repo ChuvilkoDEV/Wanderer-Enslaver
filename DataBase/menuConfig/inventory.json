@@ -1,11 +1,15 @@
 {
-  "getFromDB": "SELECT burnt_meat, bowl_of_rice, shawarma, tools, steel FROM users WHERE user_id == ?",
+  "getFromDB": "SELECT burnt_meat, bowl_of_rice, shawarma, tools, steel, shackles, cells FROM users WHERE user_id == ?",
   "data": {
     "burnt_meat": "",
     "bowl_of_rice": "",
-    "shawarma": ""
+    "shawarma": "",
+    "tools": "",
+    "steel": "",
+    "shackles": "",
+    "cells": ""
   },
   "text": {
-    "default": "\uD83C\uDF92 В вашем инвентаре хранится:\n\n\uD83C\uDF57 Подгоревшее мясо: <<burnt_meat>> шт.\n\uD83C\uDF5A Миска рис: <<bowl_of_rice>> шт.\n\uD83C\uDF2F Шава: <<shawarma>> шт.\n\uD83D\uDD27 Инструменты:\n\uD83D\uDD29 Сталь\n\n\uD83D\uDD17 Кандалов: \n⛓ Клеток: "
+    "default": "\uD83C\uDF92 В вашем инвентаре хранится:\n\n\uD83C\uDF57 Подгоревшее мясо: <<burnt_meat>> шт.\n\uD83C\uDF5A Миска рис: <<bowl_of_rice>> шт.\n\uD83C\uDF2F Шава: <<shawarma>> шт.\n\uD83D\uDD27 Инструменты: <<tools>> шт.\n\uD83D\uDD29 Сталь <<steel>> шт.\n\n\uD83D\uDD17 Кандалов: <<shackles>> шт.\n⛓ Клеток: <<cells>> шт."
   }
 }
