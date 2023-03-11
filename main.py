@@ -1,11 +1,9 @@
 from DataBase import DB_Commands
 import BotVk
 import json
-import DataBase.defaultUser
 
 
 DB_Commands.createUserDB()
-DataBase.defaultUser.generateDefaultUser()
 
 BotVk.startBot()
 """

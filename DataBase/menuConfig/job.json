@@ -1,10 +1,15 @@
 {
-  "getFromDB": "SELECT time_for_next_job FROM users WHERE user_id == ?",
+  "getFromDB": "SELECT nextWork, workEnd, isOnWork FROM users WHERE user_id == ?",
+  "setToDB": "Update users set isOnWork = ? where user_id = ?",
   "data": {
-    "time_for_next_job": ""
+    "nextWork": "",
+    "workEnd" : "",
+    "isOnWork": 0
   },
   "text": {
     "canWork": "\uD83D\uDCBCВы можете снова отправиться на работу",
-    "canNotWork": "\uD83D\uDCBC Работа заканчивается через <<hours>> часов <<minutes>> минут"
+    "onWork": "\uD83D\uDCBC Работа заканчивается через <<hours>> часов <<minutes>> минут",
+    "endWork": "Вы завершили работу, но так как награда за работу еще не реализована, вы остались с голой жопой((",
+    "chillTime": "Вы сможете отправиться на работу через <<hours>> часов <<minutes>> минут"
   }
 }

@@ -36,8 +36,9 @@ def handler(event):
         data = menu_templates.equipmentMenu(event.obj["user_id"], event.obj["peer_id"])
         editMsg(data, event.obj.conversation_message_id)
 
-    elif type == menu_templates.jobDebugBtn["type"]:
-        menu_templates.jobDebugMenu(event.obj["user_id"])
+    elif type == menu_templates.abortJobBtn["type"]:  # abortJob
+        data = menu_templates.abortJobMenu(event.obj["user_id"], event.obj["peer_id"])
+        editMsg(data, event.obj.conversation_message_id)
 
     elif type == menu_templates.jobBtn["type"]:  # job
         data = menu_templates.jobMenu(event.obj["user_id"], event.obj["peer_id"])
@@ -58,5 +59,3 @@ def handler(event):
     elif type == menu_templates.goldMineBtn["type"]:
         data = menu_templates.gotoMine(event.obj["user_id"], event.obj["peer_id"], 50)
         editMsg(data, event.obj.conversation_message_id)
-
-

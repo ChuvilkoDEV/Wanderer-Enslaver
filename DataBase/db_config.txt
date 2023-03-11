@@ -36,5 +36,7 @@ CREATE TABLE IF NOT EXISTS users(
     steel INTEGER DEFAULT 0,
     shackles INTEGER DEFAULT 0,
     cells INTEGER DEFAULT 0,
-    time_for_next_job TEXT DEFAULT '1900-01-01 00:00:00'
+    nextWork TEXT DEFAULT '1900-01-01 00:00:00',
+    workEnd TEXT DEFAULT '1900-01-01 00:00:00',
+    isOnWork INTEGER DEFAULT 0
 )
